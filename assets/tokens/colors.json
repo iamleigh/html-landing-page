@@ -32,6 +32,10 @@
       "90": {
         "value": "#F8F8F8",
         "type": "color"
+      },
+      "100": {
+        "value": "#FFFFFF",
+        "type": "color"
       }
     }
   }
