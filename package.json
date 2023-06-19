@@ -4,6 +4,7 @@
   "description": "**Awesome Motive Developer Applicant Challenge, Part 2**",
   "main": "index.html",
   "scripts": {
+    "start": "live-server --port=8080 --host=localhost",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +12,8 @@
     "name": "Leighton Quito",
     "email": "hello@iamleigh.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }
