@@ -13,7 +13,11 @@
     "email": "hello@iamleigh.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "live-server": "^1.2.2"
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.63.4",
+    "style-dictionary": "^3.8.0"
   }
 }
