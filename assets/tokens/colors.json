@@ -1,0 +1,38 @@
+{
+  "color": {
+    "primary": {
+      "value": "#E27730",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#036AAB",
+      "type": "color"
+    },
+    "tertiary": {
+      "value": "#FDB82C",
+      "type": "color"
+    },
+    "neutral": {
+      "10": {
+        "value": "#444444",
+        "type": "color"
+      },
+      "30": {
+        "value": "#777777",
+        "type": "color"
+      },
+      "50": {
+        "value": "#AAAAAA",
+        "type": "color"
+      },
+      "70": {
+        "value": "#DDDDDD",
+        "type": "color"
+      },
+      "90": {
+        "value": "#F8F8F8",
+        "type": "color"
+      }
+    }
+  }
+}

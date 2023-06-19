@@ -1,0 +1,32 @@
+{
+  "font": {
+    "weight": {
+      "md": {
+        "value": "400",
+        "type": "fontWeights"
+      },
+      "lg": {
+        "value": "700",
+        "type": "fontWeights"
+      }
+    },
+    "family": {
+      "default": {
+        "value": "\"Lato\", sans-serif",
+        "type": "fontFamilies"
+      },
+      "alt": {
+        "value": "\"Arvo\", sans-serif",
+        "type": "fontFamilies"
+      },
+      "code": {
+        "value": "source-code-pro, Menlo, Monaco, Consolas, \"Courier New\", monospace",
+        "type": "fontFamilies"
+      },
+      "backup": {
+        "value": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
+        "type": "fontFamilies"
+      }
+    }
+  }
+}

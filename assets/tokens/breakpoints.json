@@ -1,0 +1,19 @@
+{
+	"bp": {
+		"sm": {
+			"value": "430px",
+			"type": "sizing",
+			"description": "Phone: iPhone 14 Pro Max"
+		},
+		"md": {
+			"value": "834px",
+			"type": "sizing",
+			"description": "Tablet: iPad Pro 11\""
+		},
+		"lg": {
+			"value": "1280px",
+			"type": "sizing",
+			"description": "Desktop: MacBook Air"
+		}
+	}
+}
