@@ -1,0 +1,17 @@
+@use "sass:color";
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Tint
+///
+/// Adjust `$color` tint (mixture of a color with white) in `$percentage` to
+/// increase its lightness.
+///
+/// @param {String} $color
+/// @param {Number} $percentage
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@function tint($color, $percentage) {
+	$base-color: #ffffff;
+	@return color.mix($base-color, $color, $percentage);
+}

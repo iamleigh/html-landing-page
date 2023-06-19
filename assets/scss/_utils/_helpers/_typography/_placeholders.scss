@@ -1,0 +1,62 @@
+@use "../../tokens" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Animations
+///
+/// List of placeholder animations to use across the project.
+///
+/// To bypass the rule that doesn't allow us to `@extend` selectors across media
+/// queries, we will use `@mixin`.
+///
+/// Index:
+/// 1. Body
+/// 2. Small
+/// 3. Heading 1
+/// 4. Heading 2
+/// 5. Heading 3
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+
+// 1. Body
+@mixin text-body() {
+	font-weight: $font-weight-sm;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	letter-spacing: 0;
+}
+
+// 2. Small
+@mixin text-small() {
+	font-weight: $font-weight-lg;
+	font-size: 0.9rem;
+	line-height: 1.9rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+// 3. Heading 1
+@mixin heading-1() {
+	font-weight: $font-weight-lg;
+	font-size: 6.25rem;
+	line-height: 6.25rem;
+	font-family: "Oswald", sans-serif;
+	letter-spacing: -4px;
+	text-transform: uppercase;
+}
+
+// 4. Heading 2
+@mixin heading-2() {
+	font-weight: $font-weight-md;
+	font-size: 3.65rem;
+	line-height: 3.9rem;
+	letter-spacing: 0;
+}
+
+// 5. Heading 3
+@mixin heading-3() {
+	font-weight: $font-weight-md;
+	font-size: 1.75rem;
+	line-height: 2.25rem;
+	letter-spacing: -1px;
+}

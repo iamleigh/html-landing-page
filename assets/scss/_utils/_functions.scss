@@ -1,0 +1,11 @@
+/// -----------------------------------------------------------------------------
+/// 🟢 Functions
+///
+/// List helper functions such as function to replace string, lighten color,
+/// darken color, etc.
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@forward "./_functions/replace";
+@forward "./_functions/adjust-tint";
+@forward "./_functions/adjust-shade";

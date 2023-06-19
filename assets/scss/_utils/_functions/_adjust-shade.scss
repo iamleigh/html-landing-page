@@ -1,0 +1,17 @@
+@use "sass:color";
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Shade
+///
+/// Adjust `$color` shade (mixture of a color with black) in `$percentage` to
+/// increase its darkness.
+///
+/// @param {String} $color
+/// @param {Number} $percentage
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@function shade($color, $percentage) {
+	$base-color: #000000;
+	@return color.mix($base-color, $color, $percentage);
+}
