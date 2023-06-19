@@ -1,9 +1,10 @@
 # Security Policy
 
-## Supported Versions
+If you believe you have found a security vulnerability, please report it
+at <hello@iamleigh.com>. I will work with you to verify the vulnerability
+and patch it.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Supported Versions
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,8 +12,21 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+When reporting issues, please provide the following information:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- Component(s) affected
+- A description indicating how to reproduce the issue
+- A summary of the security vulnerability and impact
+
+We request that you make contact via the email address above and give the
+project contributor(s) a chance to resolve the vulnerability and issue a
+new release prior to any public exposure; this helps protect the project's
+users, and provides them with a chance to upgrade and/or update in order to
+protect their applications.
+
+## Policy
+
+If a reported security vulnerability is verified, the policy is:
+
+- Patch the current release branch, as well as the immediate prior minor
+  release branch.
