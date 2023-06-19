@@ -26,5 +26,8 @@
     "live-server": "^1.2.2",
     "sass": "^1.63.4",
     "style-dictionary": "^3.8.0"
+  },
+  "resolutions": {
+    "glob-parent": "^5.1.2"
   }
 }
