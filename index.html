@@ -40,11 +40,17 @@
 
 	<body class="am-background--white">
 		<!-- Header -->
-		<header class="am-header am-clearfix am-background--silver">
+		<header
+			id="header"
+			class="am-header am-clearfix am-background--silver"
+			aria-labelledby="header-title"
+		>
 			<button class="am-button am-button--a11y">Skip to content</button>
 
-			<hgroup class="am-">
-				<h1>Form Pages <span class="am-tag">Pro</span></h1>
+			<hgroup>
+				<h1 id="header-title">
+					Form Pages <span class="am-tag">Pro</span>
+				</h1>
 				<p>
 					Want to improve your form conversions? Form Pages by WPForms
 					allows you to create completely custom “distraction-free”
@@ -93,7 +99,7 @@
 		</header>
 
 		<!-- Content -->
-		<section>
+		<section id="content" aria-labelledby="Form Pages Add-On">
 			<button class="am-button am-button--a11y">Skip to footer</button>
 
 			<!-- Highlights -->
