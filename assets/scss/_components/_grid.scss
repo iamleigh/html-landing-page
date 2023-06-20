@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "../_utils/utils" as *;
+
+$grid-base: 12;
+$grid-gap: 50px;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Grid
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(grid) {
+	@include bp(min-width, md) {
+		display: grid;
+		grid-template-rows: auto;
+	}
+
+	@include modifier(horizontal) {
+		@include bp(min-width, md) {
+			grid-template-columns: repeat(3, 1fr);
+			margin: 0 -#{$grid-gap};
+		}
+
+		@include modifies-element(col) {
+			padding: 0 $grid-gap;
+			border-right: 1px solid $color-neutral-70;
+
+			&:last-child {
+				border-right: 0;
+			}
+		}
+	}
+
+	@include modifier(vertical) {
+		@include bp(min-width, md) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		@include modifies-element(row) {
+			@include bp(min-width, md) {
+				border-bottom: 1px solid $color-neutral-70;
+
+				&:first-child {
+					.am-grid__col:nth-child(-n+3) {
+						padding-top: 0;
+					}
+				}
+
+				&:last-child {
+					border-bottom: 0;
+
+					.am-grid__col:nth-last-child(-n+3) {
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+
+		@include modifies-element(col) {
+			@include bp(min-width, md) {
+				padding-top: $grid-gap;
+				padding-bottom: $grid-gap;
+			}
+		}
+	}
+}
