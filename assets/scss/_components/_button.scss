@@ -93,6 +93,7 @@
 		}
 	}
 
+	// Modifier: Primary Design
 	@include modifier(primary) {
 		border-color: shade($color-primary, 20%);
 		background: $color-primary;
@@ -107,6 +108,7 @@
 		}
 	}
 
+	// Modifier: Secondary Design
 	@include modifier(secondary) {
 		border-color: $color-neutral-70;
 		background: $color-neutral-100;
@@ -121,6 +123,9 @@
 		}
 	}
 
+	// Modifier: A11y Design
+	// This design is made specifically for all buttons
+	// accessible through screen readers.
 	@include modifier(a11y) {
 		position: fixed;
 		top: -1000em;
