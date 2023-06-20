@@ -21,7 +21,7 @@
 			rel="icon"
 			type="image/x-icon"
 			sizes="48x48"
-			href="./assets/images/favicon.ico"
+			href="/assets/images/favicon.ico"
 		/>
 		<link
 			rel="icon"
@@ -36,65 +36,75 @@
 			href="/assets/images/favicon-16x16.png"
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
+
+		<!-- Stylesheet(s) -->
+		<link rel="Stylesheet" href="/assets/css/main.min.css" />
 	</head>
 
-	<body class="am-background--white">
+	<body class="am-background--primary">
 		<!-- Header -->
 		<header
+			role="banner"
 			id="header"
-			class="am-header am-clearfix am-background--silver"
+			class="am-block am-block--sm am-background--secondary"
 			aria-labelledby="header-title"
 		>
 			<button class="am-button am-button--a11y">Skip to content</button>
 
-			<hgroup>
-				<h1 id="header-title">
-					Form Pages <span class="am-tag">Pro</span>
-				</h1>
-				<p>
-					Want to improve your form conversions? Form Pages by WPForms
-					allows you to create completely custom “distraction-free”
-					form landing pages to boost conversions (without writing any
-					code).
-				</p>
-			</hgroup>
+			<div role="presentation" class="am-block__content">
+				<hgroup class="am-header__group">
+					<h1 id="header-title" class="am-header__title">
+						Form Pages <span class="am-tag">Pro</span>
+					</h1>
 
-			<div role="presentation" class="am-button__group">
-				<a
-					href="https://wpforms.com/form-pages-demo/"
-					target="_blank"
-					rel="noreferrer"
-					class="am-button am-button--secondary"
-				>
-					Try the Demo
-					<span class="am-screen-reader-only">
-						(opens in a new tab)
-					</span>
-				</a>
-				<a
-					href="https://wpforms.com/pricing/"
-					target="_blank"
-					rel="noreferrer"
-					class="am-button am-button--primary"
-				>
-					Get WPForms Now
-					<span class="am-screen-reader-only">
-						(opens in a new tab)
-					</span>
-				</a>
-			</div>
+					<p class="am-header__subtitle">
+						Want to improve your form conversions? Form Pages by
+						WPForms allows you to create completely custom
+						“distraction-free” form landing pages to boost
+						conversions (without writing any code).
+					</p>
+				</hgroup>
 
-			<div role="presentation" class="am-video">
-				<iframe
-					width="560"
-					height="315"
-					src="https://www.youtube-nocookie.com/embed/mUGYPlAgJPw?controls=0"
-					title="YouTube video player"
-					class="am-video__iframe"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-				></iframe>
+				<div role="presentation" class="am-button__group">
+					<a
+						href="https://wpforms.com/form-pages-demo/"
+						target="_blank"
+						rel="noreferrer"
+						class="am-button am-button--secondary"
+					>
+						Try the Demo
+						<span class="am-screen-reader-only">
+							(opens in a new tab)
+						</span>
+					</a>
+
+					<a
+						href="https://wpforms.com/pricing/"
+						target="_blank"
+						rel="noreferrer"
+						class="am-button am-button--primary"
+					>
+						Get WPForms Now
+						<span class="am-screen-reader-only">
+							(opens in a new tab)
+						</span>
+					</a>
+				</div>
+
+				<div role="presentation" class="am-video">
+					<div role="presentation" class="am-video__box">
+						<iframe
+							width="560"
+							height="315"
+							src="https://www.youtube-nocookie.com/embed/mUGYPlAgJPw?controls=0"
+							title="YouTube video player"
+							class="am-video__iframe"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+						></iframe>
+					</div>
+				</div>
 			</div>
 		</header>
 
