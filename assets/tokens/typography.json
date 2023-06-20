@@ -11,12 +11,16 @@
       }
     },
     "family": {
-      "default": {
+      "primary": {
         "value": "\"Lato\", sans-serif",
         "type": "fontFamilies"
       },
-      "alt": {
-        "value": "\"Arvo\", sans-serif",
+      "secondary": {
+        "value": "\"Arvo\", serif",
+        "type": "fontFamilies"
+      },
+      "tertiary": {
+        "value": "\"HelveticaNeue-Light\", \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif",
         "type": "fontFamilies"
       },
       "code": {
