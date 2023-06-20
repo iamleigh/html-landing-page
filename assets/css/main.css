@@ -536,4 +536,7 @@ strong {
   z-index: 1;
   top: 0;
   left: 0;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
 }
