@@ -1,0 +1,20 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Block
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(block) {
+	padding: 100px 0;
+
+	@include element(content) {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	@include modifier(sm) {
+		padding: 50px 0;
+	}
+}

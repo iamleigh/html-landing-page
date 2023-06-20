@@ -1,0 +1,33 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Video
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(video) {
+	position: relative;
+	margin: 50px 0;
+	padding: 84px 0;
+
+	@include element(box) {
+		width: 100%;
+		max-width: 960px;
+		height: auto;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		border-radius: 6px;
+		box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
+	}
+
+	@include element(iframe) {
+		width: 100%;
+		height: auto;
+		min-height: 540px;
+		display: block;
+		margin: 0;
+	}
+}

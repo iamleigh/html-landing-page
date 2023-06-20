@@ -1,0 +1,22 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Tag
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(tag) {
+	position: relative;
+	top: 1px;
+	left: -3px;
+	vertical-align: text-top;
+	padding: 5px 10px;
+	border-radius: 11px;
+	background: #bbb;
+	color: $color-neutral-100;
+	font-weight: $font-weight-lg;
+	font-size: 10px;
+	line-height: 12px;
+	font-family: $font-family-tertiary;
+	text-transform: uppercase;
+}

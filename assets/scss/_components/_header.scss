@@ -1,0 +1,30 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Header
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(header) {
+	@include element(title) {
+		margin: 3px 0 40px;
+		color: $color-neutral-10;
+		font-weight: $font-weight-md;
+		font-size: 48px;
+		line-height: 59.27px;
+		font-family: $font-family-secondary;
+		text-align: center;
+	}
+
+	@include element(subtitle) {
+		font-size: 20px;
+		line-height: 28px;
+		text-align: center;
+	}
+
+	@include element(group) {
+		width: 100%;
+		max-width: 626px;
+		margin: 0 auto;
+	}
+}
