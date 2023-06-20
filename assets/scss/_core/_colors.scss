@@ -1,0 +1,27 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Colors
+/// Defines global modifiers to colorize elements.
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+
+// Background
+@include block(background) {
+	@include modifier(primary) {
+		background: $color-neutral-100;
+	}
+
+	@include modifier(secondary) {
+		background: $color-neutral-90;
+	}
+
+	@include modifier(tertiary) {
+		background: linear-gradient(180deg, $color-neutral-90 0%, $color-neutral-100 100%);
+	}
+
+	@include modifier(none) {
+		background: transparent;
+	}
+}

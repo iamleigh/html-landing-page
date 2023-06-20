@@ -1,0 +1,44 @@
+@use "../_utils/utils" as *;
+
+// Import Lato and Arvo from Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Arvo&family=Lato:wght@400;700&display=swap");
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Typography
+/// Defines the global typo styles for the project.
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+body {
+	color: $color-neutral-30;
+	font-family: $font-family-primary;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	@include text-body();
+}
+
+::selection {
+	background: $color-primary;
+	color: $color-neutral-100;
+}
+
+a {
+	color: $color-secondary;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 0 0 28px;
+	padding: 0;
+	border: 0;
+}
+
+strong {
+	font-weight: $font-weight-lg;
+}
