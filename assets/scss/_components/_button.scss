@@ -21,6 +21,11 @@
 	text-align: center;
 	transition: 0.2s ease;
 
+	* {
+		user-select: none;
+		pointer-events: none;
+	}
+
 	&::before {
 		// Bypass outline issue with Safari (2022+)
 		content: "";
@@ -65,11 +70,6 @@
 		&:last-child {
 			margin-right: 0;
 		}
-	}
-
-	* {
-		user-select: none;
-		pointer-events: none;
 	}
 
 	// Element: Group
