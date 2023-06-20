@@ -30,6 +30,10 @@
       "backup": {
         "value": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
         "type": "fontFamilies"
+      },
+      "icons": {
+        "value": "\"amicons\"",
+        "type": "fontFamilies"
       }
     }
   }

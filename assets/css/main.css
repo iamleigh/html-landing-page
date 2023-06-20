@@ -310,9 +310,73 @@ p {
   padding: 0;
   border: 0;
 }
+p:last-child {
+  margin-bottom: 0;
+}
 
 strong {
   font-weight: 700;
+}
+
+@font-face {
+  font-family: "amicons";
+  src: url("../fonts/amicons.eot?w98ig0");
+  src: url("../fonts/amicons.eot?w98ig0#iefix") format("embedded-opentype"), url("../fonts/amicons.ttf?w98ig0") format("truetype"), url("../fonts/amicons.woff?w98ig0") format("woff"), url("../fonts/amicons.svg?w98ig0#amicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.amicons {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: amicons !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.amicons--brush:before {
+  content: "\e900";
+}
+.amicons--chart:before {
+  content: "\e901";
+}
+.amicons--check:before {
+  content: "\e902";
+}
+.amicons--eye:before {
+  content: "\e903";
+}
+.amicons--image:before {
+  content: "\e904";
+}
+.amicons--mail:before {
+  content: "\e905";
+}
+.amicons--membership:before {
+  content: "\e906";
+}
+.amicons--palette:before {
+  content: "\e907";
+}
+.amicons--smile:before {
+  content: "\e908";
+}
+.amicons--star:before {
+  content: "\e909";
+}
+.amicons--sm {
+  font-size: 16px;
+}
+.amicons--md {
+  font-size: 24px;
+}
+.amicons--lg {
+  font-size: 48px;
 }
 
 .am-screen-reader-only {
@@ -327,6 +391,51 @@ strong {
   padding: 0;
   border: 0;
   word-wrap: normal !important;
+}
+
+@media (min-width: 834px) {
+  .am-grid {
+    display: grid;
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 834px) {
+  .am-grid--horizontal {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 -50px;
+  }
+}
+.am-grid--horizontal .am-grid__col {
+  padding: 0 50px;
+  border-right: 1px solid #dddddd;
+}
+.am-grid--horizontal .am-grid__col:last-child {
+  border-right: 0;
+}
+@media (min-width: 834px) {
+  .am-grid--vertical {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 834px) {
+  .am-grid--vertical .am-grid__row {
+    border-bottom: 1px solid #dddddd;
+  }
+  .am-grid--vertical .am-grid__row:first-child .am-grid__col:nth-child(-n+3) {
+    padding-top: 0;
+  }
+  .am-grid--vertical .am-grid__row:last-child {
+    border-bottom: 0;
+  }
+  .am-grid--vertical .am-grid__row:last-child .am-grid__col:nth-last-child(-n+3) {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 834px) {
+  .am-grid--vertical .am-grid__col {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 .am-tag {
@@ -477,6 +586,21 @@ strong {
 }
 .am-button--a11y:focus::before {
   border-color: #036aab;
+}
+
+.am-upsell {
+  text-align: center;
+}
+.am-upsell__icon {
+  display: block;
+  color: #e27730;
+  margin: 0 0 20px;
+}
+.am-upsell__title {
+  color: #444444;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
 }
 
 .am-block {
