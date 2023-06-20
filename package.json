@@ -12,7 +12,8 @@
   "keywords": [],
   "author": {
     "name": "Leighton Quito",
-    "email": "hello@iamleigh.com"
+    "email": "hello@iamleigh.com",
+    "url": "https://iamleigh.com/"
   },
   "license": "MIT",
   "devDependencies": {
