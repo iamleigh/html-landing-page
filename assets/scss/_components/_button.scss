@@ -114,6 +114,10 @@
 		background: $color-neutral-100;
 		color: $color-neutral-30;
 
+		&::before {
+			border-color: $color-neutral-70;
+		}
+
 		&:hover {
 			background: $color-neutral-70;
 		}
