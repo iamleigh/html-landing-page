@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "../_utils/utils" as *;
+
+$row-base: 12;
+$row-gap: 50px;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Row
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(row) {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include bp(min-width, md) {
+		display: flex;
+		flex-flow: row wrap;
+		margin: 0 -#{math.div($row-gap, 2)};
+	}
+}
