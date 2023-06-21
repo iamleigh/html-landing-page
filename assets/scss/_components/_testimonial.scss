@@ -1,0 +1,55 @@
+@use "sass:math";
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Testimonial
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(testimonial) {
+	margin: 0;
+	padding: 30px;
+	border: 1px solid $color-neutral-70;
+	border-radius: 6px;
+	background: $color-neutral-100;
+
+	@include element(text) {
+		margin: 0 0 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	@include element(details) {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
+
+	@include element(author) {
+		min-width: 1px;
+		flex: 1;
+		padding-right: 10px;
+		color: $color-neutral-50;
+		font-weight: $font-weight-md;
+		font-size: 14px;
+		line-height: 1.1em;
+		font-style: normal;
+	}
+
+	@include element(rating) {
+		display: flex;
+		flex: 0 0 auto;
+		align-items: center;
+		color: $color-neutral-70;
+	}
+
+	@include element(star) {
+		flex: 0 0 auto;
+
+		@include modifier(filled) {
+			color: $color-tertiary;
+		}
+	}
+}
