@@ -1,0 +1,23 @@
+@use "sass:math";
+@use "../_utils/utils" as *;
+
+$col-base: 12;
+$col-gap: 50px;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Col
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(col) {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include bp(min-width, md) {
+		min-width: 1px;
+		display: block;
+		flex: 1;
+		padding: 0 math.div($col-gap, 2);
+	}
+}
