@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Image
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(image) {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+	box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+}
