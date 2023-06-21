@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "../_utils/utils" as *;
 
-$grid-base: 12;
+$grid-base: 3;
 $grid-gap: 50px;
 
 /// -----------------------------------------------------------------------------
@@ -17,7 +17,7 @@ $grid-gap: 50px;
 
 	@include modifier(horizontal) {
 		@include bp(min-width, md) {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat($grid-base, 1fr);
 			margin: 0 -#{$grid-gap};
 		}
 
