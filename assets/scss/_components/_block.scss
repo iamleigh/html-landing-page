@@ -10,19 +10,30 @@
 
 	@include element(content) {
 		max-width: 1000px;
-		margin: 0 auto;
+		margin: 0 auto 100px;
 		padding: 0 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	@include element(title) {
 		margin: 0 0 20px;
 		color: $color-neutral-10;
+		font-weight: $font-weight-lg;
 		font-size: 32px;
 		line-height: 1;
 		letter-spacing: 0;
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		@include modifier(sm) {
+			font-size: 24px;
+			line-height: 1.6;
+			margin: 0 0 15px;
 		}
 	}
 
@@ -33,5 +44,9 @@
 
 	@include modifier(sm) {
 		padding: 50px 0;
+	}
+
+	@include modifier(center) {
+		text-align: center;
 	}
 }
