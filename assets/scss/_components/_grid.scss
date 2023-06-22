@@ -9,7 +9,7 @@ $grid-gap: 50px;
 ///
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
-@include block(ngrid) {
+@include block(grid) {
 	@include bp(min-width, md) {
 		display: grid;
 		gap: 101px;
