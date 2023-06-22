@@ -12,7 +12,7 @@
     },
     "family": {
       "primary": {
-        "value": "\"Lato\", sans-serif",
+        "value": "\"Lato\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
         "type": "fontFamilies"
       },
       "secondary": {
