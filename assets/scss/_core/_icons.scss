@@ -53,6 +53,13 @@ $icons-size: (
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	&:before {
+		// Bypass alignment issue with original design
+		position: relative;
+		top: -1px;
+		left: -1px;
+	}
+
 	@each $icon, $code in $icons-list {
 		&--#{$icon}:before {
 			content: $code;
