@@ -12,7 +12,7 @@ $grid-gap: 50px;
 @include block(grid) {
 	@include bp(min-width, md) {
 		display: grid;
-		gap: 101px;
+		gap: 98px 101px;
 		grid-template-rows: auto;
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -32,7 +32,7 @@ $grid-gap: 50px;
 				width: 1px;
 				top: 0;
 				bottom: -101px;
-				left: -50px;
+				left: -53px;
 			}
 
 			&::after {
