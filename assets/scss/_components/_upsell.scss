@@ -29,4 +29,26 @@
 			margin-bottom: 0;
 		}
 	}
+
+	@include element(content) {
+		padding: 0 8px;
+	}
+
+	@include modifier(bypass-1) {
+		// Bypass alignment issue with original design
+		// for upsell feature inside "grid: column 1".
+		margin-left: -2px;
+	}
+
+	@include modifier(bypass-2) {
+		// Bypass alignment issue with original design
+		// for upsell feature inside "grid: column 2".
+		margin-left: -4px;
+	}
+
+	@include modifier(bypass-3) {
+		// Bypass alignment issue with original design
+		// for upsell feature inside "grid: column 3".
+		margin-left: -6px;
+	}
 }
