@@ -1,6 +1,7 @@
 @use "../_utils/utils" as *;
 
-$font-path: "../fonts" !default;
+$icons-font-path: "../fonts" !default;
+$icons-font-ver: "xkl637" !default;
 
 $icons-list: (
 	brush: "\e900",
@@ -23,11 +24,11 @@ $icons-size: (
 
 @font-face {
 	font-family: '#{$font-family-icons}';
-	src: url('#{$font-path}/#{$font-family-icons}.eot?w98ig0');
-	src: url('#{$font-path}/#{$font-family-icons}.eot?w98ig0#iefix') format('embedded-opentype'),
-		url('#{$font-path}/#{$font-family-icons}.ttf?w98ig0') format('truetype'),
-		url('#{$font-path}/#{$font-family-icons}.woff?w98ig0') format('woff'),
-		url('#{$font-path}/#{$font-family-icons}.svg?w98ig0##{$font-family-icons}') format('svg');
+	src: url('#{$icons-font-path}/#{$font-family-icons}.eot?#{$icons-font-ver}');
+	src: url('#{$icons-font-path}/#{$font-family-icons}.eot?#{$icons-font-ver}#iefix') format('embedded-opentype'),
+		url('#{$icons-font-path}/#{$font-family-icons}.ttf?#{$icons-font-ver}') format('truetype'),
+		url('#{$icons-font-path}/#{$font-family-icons}.woff?#{$icons-font-ver}') format('woff'),
+		url('#{$icons-font-path}/#{$font-family-icons}.svg?#{$icons-font-ver}##{$font-family-icons}') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
