@@ -320,8 +320,8 @@ strong {
 
 @font-face {
   font-family: "amicons";
-  src: url("../fonts/amicons.eot?w98ig0");
-  src: url("../fonts/amicons.eot?w98ig0#iefix") format("embedded-opentype"), url("../fonts/amicons.ttf?w98ig0") format("truetype"), url("../fonts/amicons.woff?w98ig0") format("woff"), url("../fonts/amicons.svg?w98ig0#amicons") format("svg");
+  src: url("../fonts/amicons.eot?xkl637");
+  src: url("../fonts/amicons.eot?xkl637#iefix") format("embedded-opentype"), url("../fonts/amicons.ttf?xkl637") format("truetype"), url("../fonts/amicons.woff?xkl637") format("woff"), url("../fonts/amicons.svg?xkl637#amicons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -338,6 +338,11 @@ strong {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.amicons:before {
+  position: relative;
+  top: -1px;
+  left: -1px;
 }
 .amicons--brush:before {
   content: "\e900";
@@ -396,7 +401,7 @@ strong {
 @media (min-width: 834px) {
   .am-grid {
     display: grid;
-    gap: 101px;
+    gap: 98px 101px;
     grid-template-rows: auto;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -415,7 +420,7 @@ strong {
     width: 1px;
     top: 0;
     bottom: -101px;
-    left: -50px;
+    left: -53px;
   }
   .am-grid__col::after {
     height: 1px;
@@ -636,15 +641,22 @@ strong {
   text-align: center;
 }
 .am-upsell__icon {
+  margin: 0;
   display: block;
   color: #e27730;
-  margin: 0 0 20px;
 }
 .am-upsell__title {
+  margin: 20px 0;
   color: #444444;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.25;
+}
+.am-upsell__title:first-child {
+  margin-top: 0;
+}
+.am-upsell__title:last-child {
+  margin-bottom: 0;
 }
 
 .am-block {
