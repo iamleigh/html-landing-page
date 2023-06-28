@@ -10,7 +10,7 @@
 	width: auto;
 	position: relative;
 	display: block;
-	margin: 0 0 50px;
+	margin: 0 0 20px;
 	padding: 20px 30px;
 	border: 1px solid transparent;
 	border-radius: 3px;
@@ -59,38 +59,29 @@
 		margin-bottom: 0;
 	}
 
-	@include bp(min-width, md) {
-		flex: 1;
-		margin: 0 25px;
+	// @include bp(min-width, md) {
+	// 	flex: 1;
+	// 	margin: 0 25px;
 
-		&:first-child {
-			margin-left: 0;
-		}
+	// 	&:first-child {
+	// 		margin-left: 0;
+	// 	}
 
-		&:last-child {
-			margin-right: 0;
-		}
-	}
+	// 	&:last-child {
+	// 		margin-right: 0;
+	// 	}
+	// }
 
 	// Element: Group
 	@include element(group) {
-		max-width: 630px;
-		margin: 40px auto 0;
+		max-width: 670px;
 
-		&:first-child {
-			margin-top: 0;
-		}
-
-		@include bp(min-width, md) {
-			display: flex;
-			flex-flow: row wrap;
-			align-items: center;
-			justify-content: space-between;
-		}
-
-		@include modifier(lg) {
-			margin-top: 100px;
-		}
+		// @include bp(min-width, md) {
+		// 	display: flex;
+		// 	flex-flow: row wrap;
+		// 	align-items: center;
+		// 	justify-content: space-between;
+		// }
 	}
 
 	// Modifier: Primary Design
