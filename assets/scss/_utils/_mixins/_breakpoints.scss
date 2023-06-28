@@ -16,13 +16,13 @@ $breakpoints: (
 	// Validate `$size-1` existance in `$breakpoints`
 	@if map.has-key($breakpoints, $size-1) {
 		@if ($range) ==min-width {
-			$width: #{map.get($breakpoints, $size-1)};
+			$width: #{map.get($breakpoints, $size-1) + 1px};
 
 			@media (min-width: $width) {
 				@content;
 			}
 		} @else if ($range) ==max-width {
-			$width: #{map.get($breakpoints, $size-1) - 1};
+			$width: #{map.get($breakpoints, $size-1)};
 
 			@media (max-width: $width) {
 				@content;
@@ -30,8 +30,8 @@ $breakpoints: (
 		} @else if ($range) ==between {
 			// Validate `$size-2` existance in `$breakpoints`
 			@if map.has-key($breakpoints, $size-2) {
-				$width-1: map.get($breakpoints, $size-1);
-				$width-2: #{map.get($breakpoints, $size-2) - 1};
+				$width-1: #{map.get($breakpoints, $size-1) + 1px};
+				$width-2: #{map.get($breakpoints, $size-2)};
 
 				@media (min-width: $width-1) and (max-width: $width-2) {
 					@content;
