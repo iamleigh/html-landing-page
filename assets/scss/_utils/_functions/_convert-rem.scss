@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "../tokens" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 REM Converter
+///
+/// Convert `$value` pixel to rem.
+///
+/// @param {String} $value
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@function toRem($value) {
+	$new-value: math.div($value, $font-size-base) + rem;
+
+	@return $new-value;
+}

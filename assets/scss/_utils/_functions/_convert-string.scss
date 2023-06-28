@@ -1,0 +1,26 @@
+@use "sass:meta";
+
+@use "../tokens" as *;
+@use "./replace" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 String Converter
+///
+/// Finds out if `$value` is a number and converts it to string. Works when need
+/// to remove the suffix from the number.
+///
+/// @param {String} $value
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@function toString($value) {
+	@if meta.type-of($value)=='number' {
+		@return #{$value};
+	}
+	@else if meta.type-of($value)=='string' {
+		@return $value;
+	}
+	@else {
+		@error 'Input #{$value} is no number or string';
+	}
+}

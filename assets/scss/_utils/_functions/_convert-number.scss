@@ -1,0 +1,22 @@
+@use "sass:meta";
+@use "sass:math";
+
+@use "../tokens" as *;
+@use "./replace" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Number Converter
+///
+/// Finds out if `$value` is a string and converts it to number.
+///
+/// @param {String} $value
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@function toNumber($value) {
+	@if meta.type-of($value)=="number" and not math.is-unitless($value) {
+		@return math.div($value, $value * 0 + 1);
+	}
+
+	@return $value;
+}
