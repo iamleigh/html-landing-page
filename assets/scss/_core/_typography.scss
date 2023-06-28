@@ -10,7 +10,7 @@
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
 html {
-	font-size: 16px;
+	font-size: $font-size-base;
 }
 
 body {
@@ -50,4 +50,56 @@ p {
 
 strong {
 	font-weight: $font-weight-lg;
+}
+
+// Heading
+@include block(heading) {
+	margin: 0;
+	letter-spacing: 0;
+
+	@include modifier(one) {
+		margin-bottom: 20px;
+		color: $color-neutral-10;
+		font-weight: $font-weight-md;
+		font-size: toRem($font-size-heading-one);
+		line-height: toRem($font-height-heading-one);
+		font-family: $font-family-secondary;
+		letter-spacing: -0.1px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include bp(min-width, sm) {
+			margin-bottom: 40px;
+			font-size: #{$font-size-heading-one + 16px};
+			line-height: #{$font-height-heading-one + 19px};
+		}
+	}
+
+	@include modifier(two) {
+		font-size: $font-size-heading-two;
+		line-height: $font-height-heading-two;
+	}
+
+	@include modifier(three) {
+		font-size: toRem($font-size-heading-three);
+		line-height: toRem($font-height-heading-three);
+		letter-spacing: 0.1px;
+	}
+}
+
+// Text Modifiers
+@include block(text) {
+	@include modifier(left) {
+		text-align: left;
+	}
+
+	@include modifier(center) {
+		text-align: center;
+	}
+
+	@include modifier(right) {
+		text-align: right;
+	}
 }
