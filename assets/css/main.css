@@ -741,6 +741,7 @@ strong {
   gap: 20px;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
+  margin: 0 auto;
 }
 @media (min-width: 651px) {
   .am-button__group {
@@ -819,40 +820,6 @@ strong {
   margin: 20px 0 0;
   padding: 0 2px;
   letter-spacing: 0.05px;
-}
-
-.am-upsell {
-  text-align: center;
-}
-.am-upsell__icon {
-  margin: 0;
-  display: block;
-  color: #e27730;
-}
-.am-upsell__title {
-  margin: 20px 0;
-  color: #444444;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.25;
-}
-.am-upsell__title:first-child {
-  margin-top: 0;
-}
-.am-upsell__title:last-child {
-  margin-bottom: 0;
-}
-.am-upsell__content {
-  padding: 0 8px;
-}
-.am-upsell--bypass-1 {
-  margin-left: -2px;
-}
-.am-upsell--bypass-2 {
-  margin-left: -4px;
-}
-.am-upsell--bypass-3 {
-  margin-left: -6px;
 }
 
 .am-header__title {
