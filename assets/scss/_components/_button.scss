@@ -10,7 +10,7 @@
 	width: auto;
 	position: relative;
 	display: block;
-	margin: 0 0 20px;
+	margin: 0;
 	padding: 20px 30px;
 	border: 1px solid transparent;
 	border-radius: 3px;
@@ -55,33 +55,19 @@
 		}
 	}
 
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	// @include bp(min-width, md) {
-	// 	flex: 1;
-	// 	margin: 0 25px;
-
-	// 	&:first-child {
-	// 		margin-left: 0;
-	// 	}
-
-	// 	&:last-child {
-	// 		margin-right: 0;
-	// 	}
-	// }
-
 	// Element: Group
 	@include element(group) {
 		max-width: 670px;
+		display: grid;
+		gap: 20px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: auto;
 
-		// @include bp(min-width, md) {
-		// 	display: flex;
-		// 	flex-flow: row wrap;
-		// 	align-items: center;
-		// 	justify-content: space-between;
-		// }
+		@include bp(min-width, sm) {
+			max-width: 730px;
+			gap: 50px;
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	// Modifier: Primary Design
