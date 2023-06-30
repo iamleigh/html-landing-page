@@ -1,0 +1,39 @@
+@use "../_utils/utils" as *;
+
+/// -----------------------------------------------------------------------------
+/// 🟢 Features
+///
+/// @author Leighton Quito (iamleigh.com)
+/// -----------------------------------------------------------------------------
+@include block(feature) {
+	text-align: center;
+
+	@include element(icon) {
+		position: relative;
+		top: 1px;
+		display: block;
+		margin: 0 auto;
+		margin-left: 3px; // Bypass icon alignment.
+		color: $color-primary;
+	}
+
+	@include element(title) {
+		display: block;
+		margin: 20px 0 0;
+		color: $color-neutral-10;
+		font-weight: $font-weight-lg;
+		font-size: toRem($font-size-feature-md);
+		line-height: toRem($font-height-feature-md);
+		letter-spacing: -0.1px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	@include element(content) {
+		margin: 20px 0 0;
+		padding: 0 2px;
+		letter-spacing: 0.05px;
+	}
+}

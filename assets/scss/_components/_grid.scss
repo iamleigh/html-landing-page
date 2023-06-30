@@ -10,60 +10,167 @@ $grid-gap: 50px;
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
 @include block(grid) {
-	@include bp(min-width, md) {
+	@include bp(min-width, sm) {
 		display: grid;
-		gap: 98px 101px;
+		gap: 101px;
 		grid-template-rows: auto;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include bp(min-width, md) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	@include element(col) {
-		position: relative;
+	@include element(item) {
+		@include bp(min-width, sm) {
+			position: relative;
+		}
 
-		@include bp(min-width, md) {
-			&::before, &::after {
+		@include bp(max-width, sm) {
+			margin-bottom: 50px;
+			padding-bottom: 50px;
+			border-bottom: 1px solid $color-neutral-70;
+		}
+
+		&:before, &:after {
+			@include bp(min-width, sm) {
 				content: " ";
 				position: absolute;
-				display: block;
 				background: $color-neutral-70;
 			}
+		}
 
-			&::before {
+		&:before {
+			@include bp(min-width, sm) {
 				width: 1px;
-				top: 0;
-				bottom: -101px;
-				left: -53px;
+				top: -51px;
+				bottom: -51px;
+				left: -51px;
 			}
+		}
 
-			&::after {
+		&:after {
+			@include bp(min-width, sm) {
 				height: 1px;
 				top: -50px;
-				left: 0;
-				right: -101px;
+				left: -51px;
+				right: -51px;
+			}
+		}
+
+		// Select the first item
+		&:first-child {
+			// Select all items (except for the first child)
+			// when there are more than one item
+			&:nth-last-child(n + 3) ~ * {
+				// Select the last three items
+				&:nth-last-child(-n + 3) {
+					&:before {
+						@include bp(min-width, md) {
+							bottom: 0;
+						}
+					}
+				}
 			}
 
-			&:nth-child(-n + 3) {
-				&::after {
+			// Select all items (except for the first child)
+			// when there are more than three items
+			&:nth-last-child(n + 4) ~ * {
+				// Select the last two items
+				&:nth-last-child(-n + 2) {
+					&:before {
+						@include bp(max-width, md) {
+							bottom: 0;
+						}
+					}
+				}
+			}
+		}
+
+		// Select the first two items
+		&:nth-child(-n + 2) {
+			&:before {
+				@include bp(max-width, md) {
+					top: 0;
+				}
+			}
+
+			&:after {
+				@include bp(max-width, md) {
+					display: none;
+				}
+			}
+		}
+
+		// Select the first three items
+		&:nth-child(-n + 3) {
+			&:before {
+				@include bp(min-width, md) {
+					top: 0;
+				}
+			}
+
+			&:after {
+				@include bp(min-width, md) {
+					display: none;
+				}
+			}
+		}
+
+		// Select the first item every two items
+		&:nth-child(2n + 1) {
+			&:before {
+				@include bp(max-width, md) {
 					display: none;
 				}
 			}
 
-			&:nth-child(3n + 1) {
-				&::before {
-					display: none;
+			&:after {
+				@include bp(max-width, md) {
+					left: 0;
 				}
 			}
+		}
 
-			&:nth-child(3n + 3) {
-				&::after {
+		// Select the last item every two items
+		&:nth-child(2n + 2) {
+			&:after {
+				@include bp(max-width, md) {
 					right: 0;
 				}
 			}
+		}
 
-			&:nth-last-child(-n + 3) {
-				&::before {
-					bottom: 0;
+		// Select the first item every three items
+		&:nth-child(3n + 1) {
+			&:before {
+				@include bp(min-width, md) {
+					display: none;
 				}
+			}
+
+			&:after {
+				@include bp(min-width, md) {
+					left: 0;
+				}
+			}
+		}
+
+		// Select the last item every three items
+		&:nth-child(3n + 3) {
+			&:after {
+				@include bp(min-width, md) {
+					right: 0;
+				}
+			}
+		}
+
+		// Select the last item
+		&:last-child {
+			@include bp(max-width, sm) {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				border-bottom: 0;
 			}
 		}
 	}
