@@ -7,9 +7,11 @@
 /// -----------------------------------------------------------------------------
 @include block(tag) {
 	position: relative;
-	top: 5px;
-	left: -1px;
+	top: 4px;
+	left: 0;
 	vertical-align: text-top;
+	margin: 0;
+	margin-left: -1px;
 	padding: 5px 10px;
 	border-radius: 11px;
 	background: #bbb;
@@ -19,4 +21,8 @@
 	line-height: 12px;
 	font-family: $font-family-tertiary;
 	text-transform: uppercase;
+
+	@include bp(min-width, md) {
+		margin-left: -4px;
+	}
 }
