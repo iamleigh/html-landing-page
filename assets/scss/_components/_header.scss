@@ -11,8 +11,15 @@
 	}
 
 	@include element(group) {
-		width: 100%;
-		max-width: 630px;
-		margin: 0 auto;
+		max-width: 670px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include bp(min-width, sm) {
+			max-width: 730px;
+			margin-bottom: 40px;
+		}
 	}
 }
