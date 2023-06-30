@@ -86,6 +86,11 @@ strong {
 		font-size: toRem($font-size-heading-three);
 		line-height: toRem($font-height-heading-three);
 		letter-spacing: 0.1px;
+
+		@include bp(min-width, sm) {
+			font-size: #{$font-size-heading-three + 2px};
+			line-height: #{$font-height-heading-three + 2px};
+		}
 	}
 }
 
