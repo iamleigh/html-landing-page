@@ -8,13 +8,22 @@
 @include block(block) {
 	padding: 50px 0;
 
+	@include bp(min-width, sm) {
+		padding: 100px 0;
+	}
+
 	@include element(content) {
+		width: 100%;
 		max-width: 1000px;
 		margin: 0 auto 50px;
 		padding: 0 20px;
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		@include bp(min-width, sm) {
+			padding: 0 50px;
 		}
 	}
 
@@ -42,8 +51,10 @@
 		line-height: 1.6;
 	}
 
-	@include modifier(sm) {
-		padding: 50px 0;
+	@include modifier(top) {
+		@include bp(min-width, sm) {
+			padding: 50px 0;
+		}
 	}
 
 	@include modifier(center) {
