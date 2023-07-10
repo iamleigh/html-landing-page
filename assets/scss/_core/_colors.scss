@@ -18,7 +18,7 @@
 	}
 
 	@include modifier(tertiary) {
-		background: linear-gradient(180deg, $color-neutral-90 0%, $color-neutral-100 100%);
+		background: linear-gradient(180deg, $color-neutral-90 0%, $color-neutral-90 50%, $color-neutral-100 50%, $color-neutral-100 100%), $color-neutral-90;
 	}
 
 	@include modifier(none) {
