@@ -113,4 +113,5 @@
 	};
 
 	LQ.listFeatures("am-features-highlight", 6);
+	LQ.listFeatures("am-features-upsells", -3);
 })();
