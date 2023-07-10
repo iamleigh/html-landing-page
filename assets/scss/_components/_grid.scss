@@ -180,7 +180,7 @@ $grid-gap: 50px;
 			// Select the penultimate item
 			&:nth-last-child(2) {
 				&:after {
-					@include bp(between, $bp-sm, $bp-md) {
+					@include bp(between, sm, md) {
 						display: block;
 						top: auto;
 						bottom: -52px;
@@ -191,7 +191,7 @@ $grid-gap: 50px;
 			// Select the last item
 			&:last-child {
 				&:before {
-					@include bp(between, $bp-sm, $bp-md) {
+					@include bp(between, sm, md) {
 						display: block;
 						left: auto;
 						right: -51px;
