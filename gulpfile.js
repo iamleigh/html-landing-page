@@ -15,6 +15,20 @@ const autoprefixer = require("gulp-autoprefixer");
 const header = require("gulp-header");
 const eslint = require("gulp-eslint");
 const gulpIf = require("gulp-if");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify-es").default;
+
+/**
+ * Uglify Settings
+ *
+ * @since 1.0.0
+ */
+const uglifyOptions = {
+	compress: {
+		// eslint-disable-next-line camelcase
+		drop_console: true,
+	},
+};
 
 /**
  * Paths & Files
@@ -88,8 +102,26 @@ gulp.task("eslint-fix", () => {
 			// Replace existing file with fixed one
 			.pipe(gulpIf(isFixed, gulp.dest(srcInput.js + "*.js")))
 			.pipe(eslint.failAfterError())
+			.pipe(concat("leighton-quito.js"))
+			.pipe(header(banner))
+			.pipe(gulp.dest(srcOutput.js))
+			.pipe(uglify(uglifyOptions))
+			.pipe(rename({ suffix: ".min" }))
+			.pipe(gulp.dest(srcOutput.js))
+			.on("finish", function () {
+				console.log("📦 Finished compiling scripts.");
+			})
 	);
 });
+
+/**
+ * Stylelint
+ *
+ * Linter and auto-fix issues.
+ *
+ * @since 1.0.0
+ */
+gulp.task("stylelint", () => {});
 
 /**
  * Environment Function(s)
