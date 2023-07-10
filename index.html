@@ -44,12 +44,18 @@
 	<body class="am-background--primary">
 		<!-- Header -->
 		<header
+			tabindex="0"
 			role="banner"
 			id="header"
 			class="am-background--secondary"
 			aria-labelledby="header-title"
 		>
-			<button class="am-button am-button--a11y">Skip to content</button>
+			<button
+				class="am-button am-button--a11y am-button--skip"
+				data-skip="content"
+			>
+				Skip to content
+			</button>
 
 			<div role="presentation" class="am-block am-block--top">
 				<div role="presentation" class="am-block__content">
@@ -114,7 +120,7 @@
 		</div>
 
 		<!-- Content -->
-		<section id="content" aria-labelledby="Form Pages Add-On">
+		<section tabindex="0" id="content" aria-labelledby="Form Pages Add-On">
 			<!-- Highlights -->
 			<div
 				role="presentation"
@@ -133,10 +139,6 @@
 				class="am-block am-background--gradient"
 				aria-label="Testimonials"
 			>
-				<button class="am-button am-button--a11y">
-					Skip to next section
-				</button>
-
 				<div
 					role="presentation"
 					class="am-block__content am-block__content--lg"
@@ -179,10 +181,6 @@
 				class="am-block am-background--secondary"
 				aria-labelledby="preview-title"
 			>
-				<button class="am-button am-button--a11y">
-					Skip to next section
-				</button>
-
 				<div class="am-block__content">
 					<div role="none" class="am-row">
 						<div
@@ -304,7 +302,10 @@
 					</a>
 				</p>
 
-				<button class="am-button am-button--a11y">
+				<button
+					class="am-button am-button--a11y am-button--skip"
+					data-skip="header"
+				>
 					Jump back to page header
 				</button>
 			</div>
@@ -312,6 +313,7 @@
 	</body>
 
 	<script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+	<script src="./assets/js/skip.js"></script>
 	<script src="./assets/js/video-player.js"></script>
 	<script src="./assets/js/features.js"></script>
 	<script src="./assets/js/reviews.js"></script>
