@@ -72,6 +72,11 @@
 				? LQ.features.slice(0, $limit)
 				: LQ.features.slice($limit);
 
+			// Check if listed features length is odd
+			if (features.length > 1 && features.length % 2 != 0) {
+				$this.classList.add("am-grid--bypass");
+			}
+
 			// Build list item
 			for (let feat of features) {
 				const listitem = document.createElement("div");
