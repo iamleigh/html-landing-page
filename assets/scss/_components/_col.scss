@@ -10,14 +10,23 @@ $col-gap: 50px;
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
 @include block(col) {
-	margin: 0;
+	margin: 0 0 20px;
 	padding: 0;
 	list-style: none;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@include bp(min-width, sm) {
+		margin-bottom: 50px;
+	}
 
 	@include bp(min-width, md) {
 		min-width: 1px;
 		display: block;
 		flex: 1;
+		margin: 0;
 		padding: 0 math.div($col-gap, 2);
 	}
 }
