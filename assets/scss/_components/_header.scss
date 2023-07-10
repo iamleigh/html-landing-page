@@ -6,20 +6,18 @@
 /// @author Leighton Quito (iamleigh.com)
 /// -----------------------------------------------------------------------------
 @include block(header) {
-	@include element(title) {
-		margin-top: 3px;
-	}
+	max-width: 630px;
+	margin: 0 auto;
 
-	@include element(group) {
-		max-width: 670px;
-
-		&:last-child {
-			margin-bottom: 0;
-		}
+	&:not(:last-child) {
+		margin-bottom: 50px;
 
 		@include bp(min-width, sm) {
-			max-width: 730px;
 			margin-bottom: 40px;
 		}
+	}
+
+	@include element(title) {
+		margin-top: 3px;
 	}
 }
