@@ -37,8 +37,8 @@
 		margin: 0 0 20px;
 		color: $color-neutral-10;
 		font-weight: $font-weight-lg;
-		font-size: 32px;
-		line-height: 1;
+		font-size: toRem($font-size-heading-one);
+		line-height: toRem($font-height-heading-one);
 		letter-spacing: 0;
 
 		&:last-child {
@@ -46,15 +46,15 @@
 		}
 
 		@include modifier(sm) {
-			font-size: 24px;
-			line-height: 1.6;
+			font-size: toRem($font-size-heading-two);
+			line-height: toRem($font-height-heading-two);
 			margin: 0 0 15px;
 		}
 	}
 
 	@include element(description) {
-		font-size: 18px;
-		line-height: 1.6;
+		font-size: toRem($font-size-heading-three);
+		line-height: toRem($font-height-heading-three);
 	}
 
 	@include modifier(top) {
