@@ -7,20 +7,33 @@
 /// -----------------------------------------------------------------------------
 @include block(video) {
 	position: relative;
+	display: block;
+	color: $color-neutral-30;
 
-	&::after {
-		content: " ";
-		width: 100%;
-		height: 50%;
+	@include element(icon) {
 		position: absolute;
-		z-index: 0;
-		left: 0;
-		bottom: 0;
-		display: block;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: 3px solid $color-neutral-100;
+		border-radius: 100%;
 		background: $color-neutral-100;
+		box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.15);
+		font-size: 55px;
+
+		&::before {
+			top: 0;
+			left: 0;
+			margin-left: 0;
+		}
+
+		@include bp(min-width, md) {
+			border-width: 7px;
+			font-size: 110px;
+		}
 	}
 
-	@include element(content) {
+	@include element(player) {
 		width: 100%;
 		padding-bottom: 56.25%;
 		position: relative;
@@ -34,5 +47,20 @@
 		left: 0;
 		border-radius: 6px;
 		box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
+	}
+
+	@include modifier(link) {
+		outline: none;
+		box-shadow: none;
+		transition: 0.2s ease;
+
+		* {
+			user-select: none;
+			pointer-events: none;
+		}
+
+		&:hover {
+			color: $color-primary;
+		}
 	}
 }
