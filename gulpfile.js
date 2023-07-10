@@ -13,13 +13,23 @@ const sass = require("gulp-sass")(require("sass"));
 const cleanCSS = require("gulp-clean-css");
 const autoprefixer = require("gulp-autoprefixer");
 const header = require("gulp-header");
+const eslint = require("gulp-eslint");
+const gulpIf = require("gulp-if");
 
 /**
- * Development Paths & Files
+ * Paths & Files
+ *
+ * @since 1.0.0
  */
 const fileName = "leighton-quito-aml";
-const inputSource = "./assets/scss/";
-const outputSource = "./assets/css/";
+
+const srcInput = {};
+srcInput.js = "./assets/js/";
+srcInput.css = "./assets/scss/";
+
+const srcOutput = {};
+srcOutput.js = "./assets/js/dist/";
+srcOutput.css = "./assets/css/";
 
 /**
  * Copyright Banner
@@ -44,18 +54,42 @@ const browsersList = ["last 2 version", "> 1%"];
  */
 function compile() {
 	return gulp
-		.src(inputSource + "**/*.scss")
+		.src(srcInput.css + "**/*.scss")
 		.pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
 		.pipe(autoprefixer(browsersList))
 		.pipe(header(banner))
-		.pipe(gulp.dest(outputSource))
+		.pipe(gulp.dest(srcOutput.css))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: ".min" }))
-		.pipe(gulp.dest(outputSource))
+		.pipe(gulp.dest(srcOutput.css))
 		.on("finish", function () {
 			console.log("📦 Finished compiling styles.");
 		});
 }
+
+/**
+ * ESLint
+ *
+ * Linter and auto-fix issues.
+ *
+ * @since 1.0.0
+ */
+function isFixed(file) {
+	// Check if ESLint has run the fix
+	return file.eslint !== null && file.eslint.fixed;
+}
+
+gulp.task("eslint-fix", () => {
+	return (
+		gulp
+			.src(srcInput.js + "*.js")
+			.pipe(eslint({ fix: true }))
+			.pipe(eslint.format())
+			// Replace existing file with fixed one
+			.pipe(gulpIf(isFixed, gulp.dest(srcInput.js + "*.js")))
+			.pipe(eslint.failAfterError())
+	);
+});
 
 /**
  * Environment Function(s)
@@ -72,7 +106,7 @@ if (isProduction) {
 } else {
 	function build() {
 		return gulp.watch(
-			inputSource + "**/**/**/*.scss",
+			srcInput.css + "**/**/**/*.scss",
 			{ queue: false },
 			function (cb) {
 				compile();
