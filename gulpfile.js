@@ -82,9 +82,11 @@ function compile() {
 }
 
 /**
- * ESLint
+ * 📦 Build JS
  *
- * Linter and auto-fix issues.
+ * - Linter and auto-fix issues
+ * - Concat files into one
+ * - Minify concated file
  *
  * @since 1.0.0
  */
@@ -93,7 +95,7 @@ function isFixed(file) {
 	return file.eslint !== null && file.eslint.fixed;
 }
 
-gulp.task("eslint-fix", () => {
+gulp.task("scripts", () => {
 	return (
 		gulp
 			.src(srcInput.js + "*.js")

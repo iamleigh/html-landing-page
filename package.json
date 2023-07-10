@@ -6,7 +6,7 @@
   "scripts": {
     "tokens": "style-dictionary build",
     "styles": "npm run tokens && gulp --development",
-    "scripts": "gulp eslint-fix",
+    "scripts": "gulp scripts",
     "start": "live-server --port=8080 --host=localhost",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
