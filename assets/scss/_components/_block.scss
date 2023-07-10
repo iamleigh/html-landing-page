@@ -34,7 +34,7 @@
 	}
 
 	@include element(title) {
-		margin: 0 0 20px;
+		margin: 0 0 18px;
 		color: $color-neutral-10;
 		font-weight: $font-weight-lg;
 		font-size: toRem($font-size-heading-one);
@@ -48,13 +48,14 @@
 		@include modifier(sm) {
 			font-size: toRem($font-size-heading-two);
 			line-height: toRem($font-height-heading-two);
-			margin: 0 0 15px;
+			margin: 0 0 9px;
 		}
 	}
 
 	@include element(description) {
 		font-size: toRem($font-size-heading-three);
-		line-height: toRem($font-height-heading-three);
+		line-height: toRem(28px);
+		letter-spacing: 0.1px;
 	}
 
 	@include modifier(top) {
