@@ -23,18 +23,17 @@ in your default browser for preview.\
 
 The page will reload on every change you make.
 
-### `npm run styles`
+### `npm run dev`
 
-Builds the stylesheets using Gulp.\
+Builds stylesheets and scripts using Gulp.\
 
-You may also see any lint errors in the console when saving changes.
+You may also see any lint errors in your CLI (Command Line Interface)
+when saving changes.
 
-### `npm run scripts`
+### `npm run tokens`
 
-Builds the scripts using Gulp.\
+Generates a SCSS token file inside `assets/scss/_utils/` folder.
 
-You may also see any lint errors in the console when saving changes.
-
-### `npm run build`
+### `npm run prod`
 
 Builds files for production.
