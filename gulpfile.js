@@ -3,11 +3,6 @@
  * List here all dependencies necessary to run required tasks.
  */
 const gulp = require("gulp");
-const mode = require("gulp-mode")({
-	modes: ["production", "development"],
-	default: "development",
-	verbose: false,
-});
 const rename = require("gulp-rename");
 const sass = require("gulp-sass")(require("sass"));
 const cleanCSS = require("gulp-clean-css");
@@ -60,26 +55,37 @@ const banner = [
 
 /**
  * List of Supported Browsers
+ *
+ * @since 1.0.0
  */
 const browsersList = ["last 2 version", "> 1%"];
 
 /**
- * Building Function(s)
+ * 📦 Build CSS
+ *
+ * - Linter issues
+ * - Concat files into one
+ * - Minify concated file
+ *
+ * @since 1.0.0
  */
-function compile() {
-	return gulp
-		.src(srcInput.css + "**/*.scss")
-		.pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
-		.pipe(autoprefixer(browsersList))
-		.pipe(header(banner))
-		.pipe(gulp.dest(srcOutput.css))
-		.pipe(cleanCSS())
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(gulp.dest(srcOutput.css))
-		.on("finish", function () {
-			console.log("📦 Finished compiling styles.");
-		});
-}
+gulp.task("styles", () => {
+	return (
+		gulp
+			.src(srcInput.css + "**/*.scss")
+			// Check if files have an error
+			.pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
+			.pipe(autoprefixer(browsersList))
+			.pipe(header(banner))
+			.pipe(gulp.dest(srcOutput.css))
+			.pipe(cleanCSS())
+			.pipe(rename({ suffix: ".min" }))
+			.pipe(gulp.dest(srcOutput.css))
+			.on("finish", function () {
+				console.log("📦 Finished compiling styles.");
+			})
+	);
+});
 
 /**
  * 📦 Build JS
@@ -117,42 +123,18 @@ gulp.task("scripts", () => {
 });
 
 /**
- * Stylelint
- *
- * Linter and auto-fix issues.
+ * 📦 Compile Assets
  *
  * @since 1.0.0
  */
-gulp.task("stylelint", () => {});
+gulp.task("compile", gulp.parallel(["styles", "scripts"]));
 
 /**
- * Environment Function(s)
+ * 🧑🏻‍💻 Watch Changes
  *
- * @desc Based on environment (production or development)
- * run the required function task(s).
+ * @since 1.0.0
  */
-const isProduction = mode.production();
-
-if (isProduction) {
-	function build() {
-		return compile();
-	}
-} else {
-	function build() {
-		return gulp.watch(
-			srcInput.css + "**/**/**/*.scss",
-			{ queue: false },
-			function (cb) {
-				compile();
-				cb();
-			}
-		);
-	}
-}
-
-/**
- * Run Tasks
- *
- * @desc Use Gulp to run compiling tasks.
- */
-exports.default = gulp.series(build);
+gulp.task("watch", function () {
+	gulp.watch(srcInput.css + "**/**/**/*.scss", gulp.series(["styles"]));
+	gulp.watch(srcInput.js + "*.js", gulp.series(["scripts"]));
+});
