@@ -57,9 +57,9 @@
 				Skip to content
 			</button>
 
-			<div role="presentation" class="am-block am-block--top">
-				<div role="presentation" class="am-block__content">
-					<div role="presentation" class="am-header am-text--center">
+			<div role="none" class="am-block am-block--top">
+				<div role="none" class="am-block__content">
+					<div role="none" class="am-header am-text--center">
 						<h1
 							id="header-title"
 							class="am-heading am-heading--one"
@@ -75,38 +75,44 @@
 						</p>
 					</div>
 
-					<div role="presentation" class="am-button__group">
-						<a
-							href="https://wpforms.com/form-pages-demo/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="am-button am-button--secondary"
-						>
-							Try the Demo
-							<span class="am-screen-reader-only">
-								(opens in a new tab)
-							</span>
-						</a>
+					<div role="none" class="am-block__content">
+						<div role="list" class="am-button__group">
+							<div role="listitem">
+								<a
+									href="https://wpforms.com/form-pages-demo/"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="am-button am-button--secondary"
+								>
+									Try the Demo
+									<span class="am-screen-reader-only">
+										(opens in a new tab)
+									</span>
+								</a>
+							</div>
 
-						<a
-							href="https://wpforms.com/pricing/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="am-button am-button--primary"
-						>
-							Get WPForms Now
-							<span class="am-screen-reader-only">
-								(opens in a new tab)
-							</span>
-						</a>
+							<div role="listitem">
+								<a
+									href="https://wpforms.com/pricing/"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="am-button am-button--primary"
+								>
+									Get WPForms Now
+									<span class="am-screen-reader-only">
+										(opens in a new tab)
+									</span>
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</header>
 
 		<!-- Video -->
-		<div role="presentation" class="am-background--tertiary">
-			<div role="presentation" class="am-block__content">
+		<div role="none" class="am-background--tertiary">
+			<div role="none" class="am-block__content">
 				<a
 					href="https://www.youtube.com/watch?v=mUGYPlAgJPw"
 					target="_blank"
@@ -123,12 +129,12 @@
 		<section tabindex="0" id="content" aria-labelledby="Form Pages Add-On">
 			<!-- Highlights -->
 			<div
-				role="presentation"
+				role="none"
 				id="Highlights"
 				class="am-block am-background--none"
 				aria-label="Add-On Highlights"
 			>
-				<div role="presentation" class="am-block__content">
+				<div role="none" class="am-block__content">
 					<div id="am-features-highlight"></div>
 				</div>
 			</div>
@@ -140,37 +146,41 @@
 				aria-label="Testimonials"
 			>
 				<div
-					role="presentation"
+					role="none"
 					class="am-block__content am-block__content--lg"
 				>
 					<div id="am-list-reviews"></div>
 				</div>
 
-				<div role="presentation" class="am-block__content">
-					<div role="presentation" class="am-button__group">
-						<a
-							href="https://wpforms.com/form-pages-demo/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="am-button am-button--secondary"
-						>
-							Try the Demo
-							<span class="am-screen-reader-only">
-								(opens in a new tab)
-							</span>
-						</a>
+				<div role="none" class="am-block__content">
+					<div role="list" class="am-button__group">
+						<div role="listitem">
+							<a
+								href="https://wpforms.com/form-pages-demo/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="am-button am-button--secondary"
+							>
+								Try the Demo
+								<span class="am-screen-reader-only">
+									(opens in a new tab)
+								</span>
+							</a>
+						</div>
 
-						<a
-							href="https://wpforms.com/pricing/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="am-button am-button--primary"
-						>
-							Get WPForms Now
-							<span class="am-screen-reader-only">
-								(opens in a new tab)
-							</span>
-						</a>
+						<div role="listitem">
+							<a
+								href="https://wpforms.com/pricing/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="am-button am-button--primary"
+							>
+								Get WPForms Now
+								<span class="am-screen-reader-only">
+									(opens in a new tab)
+								</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -233,11 +243,15 @@
 				aria-label="Upsell"
 			>
 				<div
-					role="presentation"
+					role="none"
 					class="am-block__content am-block__content--lg"
 				>
-					<div role="presentation" class="am-row">
-						<div role="presentation" class="am-col am-col--6">
+					<div role="none" class="am-row">
+						<div
+							role="figure"
+							class="am-col am-col--6"
+							aria-labelledby="upsell-img-suggestions"
+						>
 							<img
 								src="/assets/images/suggestions-form.png"
 								srcset="
@@ -247,8 +261,18 @@
 								alt="Standard field settings"
 								class="am-image"
 							/>
+							<p
+								id="upsell-img-suggestions"
+								class="am-screen-reader-only"
+							>
+								Suggestions Form: Display standard fields
+							</p>
 						</div>
-						<div role="presentation" class="am-col am-col--6">
+						<div
+							role="figure"
+							class="am-col am-col--6"
+							aria-labelledby="upsell-img-pages"
+						>
 							<img
 								src="/assets/images/form-pages.png"
 								srcset="
@@ -258,12 +282,19 @@
 								alt="Form pages settings"
 								class="am-image"
 							/>
+							<p
+								id="upsell-img-pages"
+								class="am-screen-reader-only"
+							>
+								Suggestions Form: Settings to enable or disable
+								Form Pages mode
+							</p>
 						</div>
 					</div>
 				</div>
 
 				<div
-					role="presentation"
+					role="none"
 					class="am-block__content am-block__content--lg"
 				>
 					<h3 class="am-block__title am-block__title--sm">
@@ -273,7 +304,7 @@
 					</h3>
 				</div>
 
-				<div role="presentation" class="am-block__content">
+				<div role="none" class="am-block__content">
 					<div id="am-features-upsells"></div>
 				</div>
 			</div>
