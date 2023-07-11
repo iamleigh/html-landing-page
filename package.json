@@ -39,7 +39,8 @@
   "resolutions": {
     "axios": "^0.21.2",
     "glob-parent": "^5.1.2",
-    "lodash.template": "^4.5.0"
+    "lodash.template": "^4.5.0",
+    "validator": "^13.7.0"
   },
   "dependencies": {
     "jquery": "^3.7.0"
