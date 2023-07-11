@@ -62,6 +62,23 @@ const banner = [
 const browsersList = ["last 2 version", "> 1%"];
 
 /**
+ * 🗂️ Copy required files
+ *
+ * @since 1.0.0
+ */
+gulp.task("copy-css", function () {
+	return gulp.src(["."]); // do nothing
+});
+
+gulp.task("copy-js", function () {
+	return gulp
+		.src(["./node_modules/jquery/dist/jquery.min.js"])
+		.pipe(gulp.dest(srcOutput.js));
+});
+
+gulp.task("copy", gulp.series(["copy-css", "copy-js"]));
+
+/**
  * 📦 Build CSS
  *
  * - Linter issues
@@ -70,7 +87,7 @@ const browsersList = ["last 2 version", "> 1%"];
  *
  * @since 1.0.0
  */
-gulp.task("styles", () => {
+gulp.task("styles", function () {
 	return (
 		gulp
 			.src(srcInput.css + "**/*.scss")
@@ -102,7 +119,7 @@ function isFixed(file) {
 	return file.eslint !== null && file.eslint.fixed;
 }
 
-gulp.task("scripts", () => {
+gulp.task("scripts", function () {
 	return (
 		gulp
 			.src(srcInput.js + "*.js")
@@ -128,10 +145,10 @@ gulp.task("scripts", () => {
  *
  * @since 1.0.0
  */
-gulp.task("compile", gulp.parallel(["styles", "scripts"]));
+gulp.task("compile", gulp.series(["copy", "styles", "scripts"]));
 
 /**
- * Accessibility
+ * 🧪 Accessibility
  *
  * Lints WCAG2A suggestions:
  * - [NOTICE]  Elements to pay attention and run manual checks.
@@ -161,9 +178,23 @@ gulp.task("a11y", function () {
 /**
  * 🧑🏻‍💻 Watch Changes
  *
+ * Task written for development mode.
+ *
  * @since 1.0.0
  */
 gulp.task("watch", function () {
 	gulp.watch(srcInput.css + "**/**/**/*.scss", gulp.series(["styles"]));
 	gulp.watch(srcInput.js + "*.js", gulp.series(["scripts"]));
 });
+
+/**
+ * 🚀 Deploy
+ *
+ * Task written for production mode.
+ *
+ * @todo Include copy release files to `build` folder
+ * @todo Include `gh-pages` deploy task
+ *
+ * @since 1.0.0
+ */
+gulp.task("deploy", gulp.series(["compile"]));

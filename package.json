@@ -6,7 +6,7 @@
   "scripts": {
     "tokens": "style-dictionary build",
     "dev": "npm run tokens && gulp watch",
-    "prod": "npm run tokens && gulp compile",
+    "prod": "npm run tokens && gulp deploy",
     "start": "live-server --port=8080 --host=localhost",
     "test": "gulp a11y"
   },
