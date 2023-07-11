@@ -42,8 +42,8 @@
 			const reviews = Number.isNaN($limit)
 				? LQ.reviews
 				: $limit >= 0
-				? LQ.reviews.slice(0, $limit)
-				: LQ.reviews.slice($limit);
+					? LQ.reviews.slice(0, $limit)
+					: LQ.reviews.slice($limit);
 
 			// Build list item
 			for (let review of reviews) {

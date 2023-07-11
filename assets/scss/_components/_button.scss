@@ -14,6 +14,7 @@
 	padding: 20px 30px;
 	border: 1px solid transparent;
 	border-radius: 3px;
+	outline: none;
 	font-weight: $font-weight-lg;
 	font-size: 20px;
 	line-height: 22px;
@@ -26,33 +27,8 @@
 		pointer-events: none;
 	}
 
-	&::before {
-		// Bypass outline issue with Safari (2022+)
-		content: "";
-		opacity: 0;
-		position: absolute;
-		top: -6px;
-		right: -6px;
-		bottom: -6px;
-		left: -6px;
-		display: block;
-		border: 2px solid $color-primary;
-		border-radius: 6px;
-		transition: 0.2s ease;
-	}
-
 	&:hover {
 		text-decoration: none;
-	}
-
-	&:focus {
-		// Bypass outline issue with Safari (2022+)
-		outline: none;
-
-		&::before {
-			// Bypass outline issue with Safari (2022+)
-			opacity: 1;
-		}
 	}
 
 	// Element: Group
@@ -82,6 +58,7 @@
 
 		&:focus {
 			background: $color-primary;
+			box-shadow: 0 0 0 1px #FFF, 0 0 0 3px $color-primary;
 		}
 	}
 
@@ -91,16 +68,13 @@
 		background: $color-neutral-100;
 		color: $color-neutral-30;
 
-		&::before {
-			border-color: $color-neutral-70;
-		}
-
 		&:hover {
 			background: $color-neutral-70;
 		}
 
 		&:focus {
 			background: $color-neutral-100;
+			box-shadow: 0 0 0 2px #FFF, 0 0 0 4px $color-neutral-70;
 		}
 	}
 
@@ -108,22 +82,25 @@
 	// This design is made specifically for all buttons
 	// accessible through screen readers.
 	@include modifier(a11y) {
-		position: fixed;
+		position: absolute;
 		top: -1000em;
 		left: 20px;
 		margin: 0;
 		padding: 10px 20px;
 		border-color: shade($color-secondary, 20%);
-		background: $color-secondary;
-		color: $color-neutral-100;
+		background: $color-neutral-100;
+		color: $color-secondary;
 		font-size: 16px;
+
+		&:hover,
+		&:focus {
+			background: $color-secondary;
+			color: $color-neutral-100;
+		}
 
 		&:focus {
 			top: 20px;
-
-			&::before {
-				border-color: $color-secondary;
-			}
+			box-shadow: 0 0 0 1px #FFF, 0 0 0 3px $color-secondary;
 		}
 	}
 }

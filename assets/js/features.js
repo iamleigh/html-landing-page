@@ -69,8 +69,8 @@
 			const features = Number.isNaN($limit)
 				? LQ.features
 				: $limit >= 0
-				? LQ.features.slice(0, $limit)
-				: LQ.features.slice($limit);
+					? LQ.features.slice(0, $limit)
+					: LQ.features.slice($limit);
 
 			// Check if listed features length is odd
 			if (features.length > 1 && features.length % 2 != 0) {
