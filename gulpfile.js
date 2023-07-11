@@ -12,6 +12,7 @@ const eslint = require("gulp-eslint");
 const gulpIf = require("gulp-if");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify-es").default;
+const access = require("gulp-accessibility");
 
 /**
  * Uglify Settings
@@ -128,6 +129,34 @@ gulp.task("scripts", () => {
  * @since 1.0.0
  */
 gulp.task("compile", gulp.parallel(["styles", "scripts"]));
+
+/**
+ * Accessibility
+ *
+ * Lints WCAG2A suggestions:
+ * - [NOTICE]  Elements to pay attention and run manual checks.
+ * - [WARNING] Elements that require an improvement.
+ * - [ERROR]   Important semantic improvements.
+ *
+ * @since 1.0.0
+ */
+gulp.task("a11y", function () {
+	return gulp
+		.src("index.html")
+		.pipe(
+			access({
+				force: true,
+			})
+		)
+		.on("error", console.log)
+		.pipe(access.report({ reportType: "txt" }))
+		.pipe(
+			rename({
+				extname: ".txt",
+			})
+		)
+		.pipe(gulp.dest("reports/txt"));
+});
 
 /**
  * 🧑🏻‍💻 Watch Changes
