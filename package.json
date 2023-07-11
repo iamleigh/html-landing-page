@@ -37,7 +37,9 @@
     "style-dictionary": "^3.8.0"
   },
   "resolutions": {
-    "glob-parent": "^5.1.2"
+    "axios": "^0.21.2",
+    "glob-parent": "^5.1.2",
+    "lodash.template": "^4.5.0"
   },
   "dependencies": {
     "jquery": "^3.7.0"
