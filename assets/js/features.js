@@ -96,7 +96,7 @@
 					"am-feature__icon"
 				);
 
-				const title = document.createElement("p");
+				const title = document.createElement("h4");
 				title.classList.add("am-feature__title");
 				title.innerHTML = feat.title;
 

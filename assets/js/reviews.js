@@ -73,7 +73,8 @@
 				// <span class="am-testimonial__author" />
 				const author = document.createElement("span");
 				author.classList.add("am-testimonial__author");
-				author.innerHTML = `<span role="none" class="am-screen-reader-only">Testimonial by </span>- ${review.author}`;
+				author.setAttribute("aria-label", "Testimonial by");
+				author.innerHTML = `- ${review.author}`;
 
 				// Review rating
 				// Goes inside the "review details" container
