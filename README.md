@@ -38,27 +38,6 @@ To address these, I created an improved version in Figma, which you can view her
 
 ---
 
-## ⚙️ Scripts
-
-### `npm i`
-Installs dependencies in the `node_modules` folder.
-
-### `npm run start`
-Runs the project locally and opens it in your default browser.<br/>
-Reloads automatically when changes are made.
-
-### `npm run dev`
-Builds stylesheets and scripts using Gulp.<br/>
-Also runs linters and reports errors in the CLI.
-
-### `npm run tokens`
-Generates a SCSS token file inside `assets/scss/_utils/`.
-
-### `npm run prod`
-Builds optimized files for production, ready for deployment.
-
----
-
 ## 🧠 Why am I sharing this?
 
 This repository demonstrates:
@@ -79,6 +58,22 @@ This repository demonstrates:
 - ⚡ **Vanilla JS Enhancements**: Includes skip‑link focus management and interactive content
 - ♿ **Accessibility Considerations**: ARIA attributes, skip navigation, and focus states
 - 🔄 **Build Process**: Gulp tasks for compilation, linting, and production optimization
+
+---
+
+## ⚠️ Setup Notes
+
+You can find a more detailed information on each available script on the CONTRIBUTIONS file.
+
+- Node version: **>= 18.16.0**
+
+```bash
+# Install all the required dependencies
+npm run install
+
+# Run the project locally
+npm run start
+```
 
 ---
 
