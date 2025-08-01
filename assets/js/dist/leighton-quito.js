@@ -102,7 +102,7 @@
 					"am-feature__icon"
 				);
 
-				const title = document.createElement("p");
+				const title = document.createElement("h4");
 				title.classList.add("am-feature__title");
 				title.innerHTML = feat.title;
 
@@ -202,7 +202,8 @@
 				// <span class="am-testimonial__author" />
 				const author = document.createElement("span");
 				author.classList.add("am-testimonial__author");
-				author.innerHTML = `<span role="none" class="am-screen-reader-only">Testimonial by </span>- ${review.author}`;
+				author.setAttribute("aria-label", "Testimonial by");
+				author.innerHTML = `- ${review.author}`;
 
 				// Review rating
 				// Goes inside the "review details" container
@@ -252,48 +253,37 @@
 	LQ.listReviews("am-list-reviews");
 })();
 
-(function ($) {
+(function () {
 	// Enable strict mode.
 	"use strict";
 
 	// Define global object if it doesn't exist.
-	if ("object" !== typeof window.LQ) {
+	if (typeof window.LQ !== "object") {
 		window.LQ = {};
 	}
 
 	LQ.skip = () => {
-		const isNull = (element) => {
-			if (null === element) {
-				return true;
-			}
-
-			return false;
-		};
-
-		const isEmpty = (element) => {
-			if ("" !== element) {
-				return false;
-			}
-
-			return true;
-		};
+		// Helper functions
+		const isNull = (element) => element === null;
+		const isEmpty = (element) => element === "";
 
 		// Plugin init
 		const init = () => {
-			const $this = $(".am-button--skip");
+			const buttons = document.querySelectorAll(".am-button--skip");
 
-			$this.each((index, button) => {
-				const $this = $(button);
-				const $id = button.getAttribute("data-skip");
+			buttons.forEach((button) => {
+				const id = button.getAttribute("data-skip");
 
 				// Stop if data is null or empty
-				if (isNull($id) || isEmpty($id)) {
+				if (isNull(id) || isEmpty(id)) {
 					return;
 				}
 
-				$this.on("click", function () {
-					const content = $(`#${$id}`);
-					$(content).trigger("focus");
+				button.addEventListener("click", () => {
+					const content = document.getElementById(id);
+					if (content) {
+						content.focus();
+					}
 				});
 			});
 		};
@@ -302,7 +292,7 @@
 	};
 
 	LQ.skip();
-})(jQuery);
+})();
 
 (function () {
 	// Enable strict mode.
