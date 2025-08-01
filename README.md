@@ -18,7 +18,7 @@ Installs any specified packages in the `package.json` file inside
 
 ### `npm run start`
 
-Runs the project locally and opens [http://localhost:3000](http://localhost:3000)
+Runs the project locally and opens [http://localhost:8080](http://localhost:8080)
 in your default browser for preview.\
 
 The page will reload on every change you make.
