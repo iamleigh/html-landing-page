@@ -6,9 +6,10 @@
   "scripts": {
     "tokens": "style-dictionary build",
     "dev": "npm run tokens && gulp watch",
-    "prod": "npm run tokens && gulp deploy",
-    "start": "live-server --port=8080 --host=localhost",
-    "test": "gulp a11y"
+    "prod": "npm run tokens && gulp build && NODE_ENV=production gulp deploy",
+    "clean": "NODE_ENV=production gulp clean",
+    "deploy": "npm run prod && gh-pages -d public -b gh-pages -m \"🚀 Update website with latest changes.\" && npm run clean",
+    "start": "live-server --port=8080 --host=localhost"
   },
   "keywords": [],
   "author": {
@@ -18,7 +19,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "del": "^6.1.1",
     "eslint": "^8.44.0",
+    "gh-pages": "^6.3.0",
     "gulp": "^4.0.2",
     "gulp-accessibility": "^3.1.1",
     "gulp-autoprefixer": "^8.0.0",
@@ -29,6 +32,7 @@
     "gulp-if": "^3.0.0",
     "gulp-mode": "^1.1.0",
     "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^3.0.0",

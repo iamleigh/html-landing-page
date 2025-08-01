@@ -12,7 +12,9 @@ const eslint = require("gulp-eslint");
 const gulpIf = require("gulp-if");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify-es").default;
+const replace = require("gulp-replace");
 const access = require("gulp-accessibility");
+const isProd = process.env.NODE_ENV === "production";
 
 /**
  * Uglify Settings
@@ -40,6 +42,15 @@ srcInput.css = "./assets/scss/";
 const srcOutput = {};
 srcOutput.js = "./assets/js/dist/";
 srcOutput.css = "./assets/css/";
+srcOutput.img = "./assets/images/";
+srcOutput.fonts = "./assets/fonts/";
+
+const srcPublic = {};
+srcPublic.root = "./public/";
+srcPublic.js = "./public/assets/js/";
+srcPublic.css = "./public/assets/css/";
+srcPublic.img = "./public/assets/images/";
+srcPublic.fonts = "./public/assets/fonts/";
 
 /**
  * Copyright Banner
@@ -67,16 +78,75 @@ const browsersList = ["last 2 version", "> 1%"];
  * @since 1.0.0
  */
 gulp.task("copy-css", function () {
+	if ( isProd ) {
+		return gulp
+			.src([srcOutput.css + "**"])
+			.pipe(gulp.dest(srcPublic.css));
+	}
+
 	return gulp.src(["."]); // do nothing
 });
 
 gulp.task("copy-js", function () {
-	return gulp
-		.src(["./node_modules/jquery/dist/jquery.min.js"])
-		.pipe(gulp.dest(srcOutput.js));
+	if ( isProd ) {
+		return gulp
+			.src([srcOutput.js + "**"])
+			.pipe(gulp.dest(srcPublic.js));
+	}
+
+	return gulp.src(["."]); // do nothing
 });
 
-gulp.task("copy", gulp.series(["copy-css", "copy-js"]));
+gulp.task("copy-html", function () {
+	if ( isProd ) {
+		return gulp
+			.src(["./*.html"])
+			.pipe(gulp.dest(srcPublic.root));
+	}
+
+	return gulp.src(["."]); // do nothing
+});
+
+gulp.task("copy-img", function () {
+	if ( isProd ) {
+		return gulp
+			.src([srcOutput.img + "**"])
+			.pipe(gulp.dest(srcPublic.img));
+	}
+
+	return gulp.src(["."]); // do nothing
+});
+
+gulp.task("copy-fonts", function () {
+	if ( isProd ) {
+		return gulp
+			.src([srcOutput.fonts + "**", "!" + srcOutput.fonts + "*.json"])
+			.pipe(gulp.dest(srcPublic.fonts));
+	}
+
+	return gulp.src(["."]); // do nothing
+});
+
+gulp.task("copy", gulp.series(["copy-css", "copy-js", "copy-img", "copy-fonts", "copy-html"]));
+
+/**
+ * 📝 Rewrite PATHS
+ * 
+ * This task replaces references to `js/dist/` with `js/` in files
+ * that have already been copied into the public folder.
+ * 
+ * Runs only in production mode.
+ * 
+ * @since 1.0.0
+ */
+gulp.task("rewrite", function () {
+	if ( isProd ) {
+		return gulp
+			.src(srcPublic.root + "*.html")
+			.pipe(replace("js/dist/", "js/"))
+			.pipe(gulp.dest(srcPublic.root));
+	}
+});
 
 /**
  * 📦 Build CSS
@@ -98,7 +168,7 @@ gulp.task("styles", function () {
 			.pipe(gulp.dest(srcOutput.css))
 			.pipe(cleanCSS())
 			.pipe(rename({ suffix: ".min" }))
-			.pipe(gulp.dest(srcOutput.css))
+			.pipe(gulp.dest(isProd ? srcPublic.css : srcOutput.css))
 			.on("finish", function () {
 				console.log("📦 Finished compiling styles.");
 			})
@@ -133,7 +203,7 @@ gulp.task("scripts", function () {
 			.pipe(gulp.dest(srcOutput.js))
 			.pipe(uglify(uglifyOptions))
 			.pipe(rename({ suffix: ".min" }))
-			.pipe(gulp.dest(srcOutput.js))
+			.pipe(gulp.dest(isProd ? srcPublic.js : srcOutput.js))
 			.on("finish", function () {
 				console.log("📦 Finished compiling scripts.");
 			})
@@ -145,7 +215,21 @@ gulp.task("scripts", function () {
  *
  * @since 1.0.0
  */
-gulp.task("compile", gulp.series(["copy", "styles", "scripts"]));
+gulp.task("compile", gulp.series(["styles", "scripts"]));
+
+/**
+ * 🧹 Clean Public
+ * 
+ * This task removes the `public` folder. Usually runs before
+ * deployment tasks to ensure everything is properly clean
+ * and there are no duplications.
+ * 
+ * @since 1.0.0
+ */
+gulp.task("clean", function () {
+	const del = require("del");
+	return isProd ? del([srcPublic.root]) : Promise.resolve();
+});
 
 /**
  * 🧪 Accessibility
@@ -188,13 +272,19 @@ gulp.task("watch", function () {
 });
 
 /**
+ * 💾 Build
+ * 
+ * Task written for development mode.
+ * 
+ * @since 1.0.0
+ */
+gulp.task("build", gulp.series(["compile"]));
+
+/**
  * 🚀 Deploy
  *
  * Task written for production mode.
  *
- * @todo Include copy release files to `build` folder
- * @todo Include `gh-pages` deploy task
- *
  * @since 1.0.0
  */
-gulp.task("deploy", gulp.series(["compile"]));
+gulp.task("deploy", gulp.series(["clean", "compile", "copy", "rewrite"]));
